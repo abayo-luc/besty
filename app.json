@@ -1,17 +1,17 @@
 {
-  "name": "besty",
-  "displayName": "Besty",
-  "expo": {
-    "name": "besty",
-    "slug": "expo-template-bare",
-    "privacy": "unlisted",
-    "sdkVersion": "36.0.0",
-    "version": "1.0.0",
-    "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ]
-  }
+	"name": "besty",
+	"displayName": "Besty",
+	"expo": {
+		"name": "besty",
+		"slug": "expo-template-bare",
+		"privacy": "unlisted",
+		"sdkVersion": "36.0.0",
+		"version": "1.0.0",
+		"entryPoint": "node_modules/expo/AppEntry.js",
+		"splash": {
+			"image": "./assets/splash.png",
+			"backgroundColor": "#FFFFFF"
+		},
+		"platforms": ["ios", "android", "web"]
+	}
 }

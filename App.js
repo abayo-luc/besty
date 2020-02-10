@@ -1,4 +1,4 @@
 import React from 'react';
-import Navigation from './src/navigation';
+import App from './src';
 
-export default () => <Navigation />;
+export default () => <App />;
