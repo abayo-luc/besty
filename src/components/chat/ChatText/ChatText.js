@@ -1,35 +1,56 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import React, { forwardRef, useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { Paragraph, Card, useTheme, Avatar } from 'react-native-paper';
+import { Transitioning, Transition } from 'react-native-reanimated';
+import BotIcon from './icons/robot.png';
 import styles from './styles';
-import { Paragraph, Card } from 'react-native-paper';
-
-const ChatText = ({ nodeId = 0, message }) => {
+import { responsiveHeight } from '../../../utils/responsivePixel';
+const ChatText = (props, ref) => {
+	const { colors } = useTheme();
+	const transition = (
+		<Transition.In
+			type={props.nodeId ? 'slide-right' : 'slide-left'}
+			durationMs={400}
+			interpolation='linear'
+			propagation={props.nodeId ? 'right' : 'left'}
+		/>
+	);
+	useEffect(() => {
+		if (props.animated) {
+			ref.current.animateNextTransition();
+		}
+	}, [props.message, props.animated]);
 	const containerStyles = [styles.container];
-	const cardStyles = [styles.card];
+	const cardStyles = [styles.card, { backgroundColor: colors.secondary }];
 	const textStyles = [];
-	if (nodeId) {
+	if (props.nodeId) {
 		containerStyles.push({
 			justifyContent: 'flex-end'
 		});
-		cardStyles.push({ backgroundColor: 'rgb(51, 54, 93)' });
+		cardStyles.push({
+			backgroundColor: colors.accent,
+			borderBottomEndRadius: 0
+		});
 		textStyles.push({ color: '#fff' });
 	}
 
 	return (
-		<View style={containerStyles}>
+		<Transitioning.View
+			style={containerStyles}
+			ref={ref}
+			transition={transition}>
+			{!props.nodeId ? (
+				<Avatar.Image
+					source={BotIcon}
+					size={responsiveHeight(5)}
+					style={styles.avatar}
+				/>
+			) : null}
 			<Card style={cardStyles} elevation={1}>
-				<Paragraph style={textStyles}>{message}</Paragraph>
+				<Paragraph style={textStyles}>{props.message}</Paragraph>
 			</Card>
-		</View>
+		</Transitioning.View>
 	);
 };
 
-ChatText.propTypes = {
-	nodeId: PropTypes.number,
-	message: PropTypes.string.isRequired
-};
-ChatText.defaultProps = {
-	nodeId: 0
-};
-export default ChatText;
+export default forwardRef(ChatText);
