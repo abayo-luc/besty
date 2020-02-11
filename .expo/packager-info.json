@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 6737,
+  "expoServerNgrokUrl": "https://gx-crp.luc-abayo.besty.exp.direct",
+  "packagerNgrokUrl": "https://packager.gx-crp.luc-abayo.besty.exp.direct",
+  "ngrokPid": 6754
 }

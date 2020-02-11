@@ -1,8 +1,10 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 
 const Container = ({ children, containerStyles = {} }) => (
-	<SafeAreaView style={containerStyles}>{children}</SafeAreaView>
+	<View style={[containerStyles]} forceInset={{ top: 'never' }}>
+		{children}
+	</View>
 );
 
 export default Container;
