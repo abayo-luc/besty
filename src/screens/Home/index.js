@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { ImageBackground } from 'react-native';
 import styles from './styles';
 import Container from '../../components/Container';
 import data from '../../data/chat';
 import ChatComponent from '../../components/chat';
-
-const Home = () => {
-	const [messages, setMessages] = useState(data);
+import Background from '../../../assets/chat.jpg';
+const Home = ({ navigation }) => {
+	const {
+		language = 'english'
+	} = navigation.dangerouslyGetParent().state.params;
+	const [messages, setMessages] = useState(data[language]);
 	const [text, setText] = useState('');
 	const _sendMessage = () => {
 		if (!text) return;
@@ -20,12 +24,16 @@ const Home = () => {
 	};
 	return (
 		<Container containerStyles={styles.container}>
-			<ChatComponent
-				data={messages}
-				onSend={_sendMessage}
-				message={text}
-				onChangeMessage={setText}
-			/>
+			<ImageBackground
+				source={Background}
+				style={{ flex: 1, width: '100%', width: '100%' }}>
+				<ChatComponent
+					data={messages}
+					onSend={_sendMessage}
+					message={text}
+					onChangeMessage={setText}
+				/>
+			</ImageBackground>
 		</Container>
 	);
 };

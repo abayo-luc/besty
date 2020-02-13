@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 import MessageComposer from './Composer/Index';
@@ -28,23 +28,18 @@ ChatTextComponent.propTypes = {
 };
 
 const ChatComponent = ({ data, onChangeMessage, message, onSend }) => {
-	[animated, setAnimate] = useState(false);
-	const _handleOnChangeMessage = text => {
-		setAnimate(true);
-		onChangeMessage(text);
-	};
 	return (
 		<KeyboardAvoider containerStyles={styles.content}>
 			<FlatList
 				data={data}
 				keyExtractor={item => item.id}
 				renderItem={({ item, index }) => (
-					<ChatTextComponent item={item} index={index} animated={animated} />
+					<ChatTextComponent item={item} index={index} />
 				)}
 				inverted={-1}
 			/>
 			<MessageComposer
-				onChangeText={_handleOnChangeMessage}
+				onChangeText={onChangeMessage}
 				message={message}
 				onSend={onSend}
 			/>

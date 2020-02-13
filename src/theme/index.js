@@ -5,7 +5,7 @@ export default {
 	colors: {
 		...DefaultTheme.colors,
 		primary: '#fff',
-		accent: 'rgb(51, 54, 93)',
+		accent: 'rgb(3, 17, 75)',
 		secondary: '#ecf2f6'
 	}
 };
