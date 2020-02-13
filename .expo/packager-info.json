@@ -1,10 +1,1 @@
-{
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 4779,
-  "expoServerNgrokUrl": "https://cz-k8z.cop1fab.besty.exp.direct",
-  "packagerNgrokUrl": "https://packager.cz-k8z.cop1fab.besty.exp.direct",
-  "ngrokPid": 4800,
-  "webpackServerPort": null
-}
+{}
