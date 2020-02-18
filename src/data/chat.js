@@ -1,15 +1,20 @@
-export default [
-	{
-		id: 'txt-1',
-		_nodeId: 0,
-		message: 'How may we be helpful for you?',
-		trigger: '2'
-	},
-	{
-		id: 'txt-4',
-		_nodeId: 0,
-		message:
-			'Thank you for your interest in us. Besty is the online platform where drug meet therapists to get assistance anonymously. If you have further questions do not hesitate to contact us on 445678',
-		trigger: '4'
-	}
-];
+export default {
+	english: [
+		{
+			id: 'txt-4',
+			_nodeId: 0,
+			message:
+				'Welcome! My name is Besty, I am the first ever made in Rwanda virtual self-help app to help you towards your mental fitness goal. If you allow it together we can achieve more. Can we be friends?',
+			trigger: '4'
+		}
+	],
+	kinyarwanda: [
+		{
+			id: 'txt-4',
+			_nodeId: 0,
+			message:
+				'Murakaza neza! Nitwa Nshuti; ndi porogaramu ya murandasi yambere yakorewe mu Rwanda kugirango igufashe mu nzira igana ituze risesuye.  Dufatanyije twagera kuri byinshi. Wakwemera ko tuba inshuti?',
+			trigger: '4'
+		}
+	]
+};

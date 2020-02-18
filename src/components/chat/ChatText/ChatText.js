@@ -16,9 +16,7 @@ const ChatText = (props, ref) => {
 		/>
 	);
 	useEffect(() => {
-		if (props.animated) {
-			ref.current.animateNextTransition();
-		}
+		ref.current.animateNextTransition();
 	}, [props.message, props.animated]);
 	const containerStyles = [styles.container];
 	const cardStyles = [styles.card, { backgroundColor: colors.secondary }];
