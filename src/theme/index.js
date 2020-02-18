@@ -6,6 +6,7 @@ export default {
 		...DefaultTheme.colors,
 		primary: '#fff',
 		accent: 'rgb(3, 17, 75)',
-		secondary: '#ecf2f6'
+		secondary: '#ecf2f6',
+		yellow: 'rgb(233,163,64)'
 	}
 };
