@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { responsiveWidth, responsiveHeight } from '../../utils/responsivePixel';
+import {
+	responsiveWidth,
+	responsiveHeight,
+	DEVICE_WIDTH
+} from '../../utils/responsivePixel';
 
 export default StyleSheet.create({
 	container: {
@@ -12,7 +16,7 @@ export default StyleSheet.create({
 		marginVertical: responsiveHeight(4)
 	},
 	question: {
-		fontSize: responsiveHeight(3),
+		fontSize: responsiveHeight(2),
 		margin: responsiveWidth(3),
 		textAlign: 'center'
 	},
@@ -23,17 +27,23 @@ export default StyleSheet.create({
 		marginTop: responsiveHeight(4)
 	},
 	answerContainer: {
-		marginVertical: responsiveHeight(1.5)
+		marginVertical: responsiveHeight(1.2)
+	},
+	buttonsContainer: {
+		flexDirection: 'row',
+		width: DEVICE_WIDTH * 0.7,
+		justifyContent: 'space-evenly'
 	},
 	nextButton: {
 		backgroundColor: '#000',
-		paddingHorizontal: responsiveHeight(5),
-		paddingVertical: responsiveHeight(2),
-		borderRadius: responsiveHeight(4.5) / 1.5,
+		width: responsiveWidth(30),
+		alignItems: 'center',
+		paddingVertical: responsiveHeight(1.5),
+		borderRadius: responsiveHeight(0.5),
 		marginTop: responsiveHeight(5)
 	},
 	nextButtonTitle: {
 		color: '#fff',
-		fontSize: responsiveHeight(3)
+		fontSize: responsiveHeight(2)
 	}
 });

@@ -27,14 +27,12 @@ const styles = StyleSheet.create({
 		padding: responsiveHeight(0.5)
 	}
 });
-const ListItem = ({ onNavigate }) => (
+const ListItem = ({ onNavigate, category, title }) => (
 	<TouchableWithoutFeedback onPress={onNavigate}>
 		<View style={styles.container}>
 			<View style={styles.content}>
-				<Text>Hello world</Text>
-				<Caption lineBreakMode={1}>
-					Set style of the TextInput component inside the searchbar
-				</Caption>
+				<Text>{category}</Text>
+				<Caption lineBreakMode={1}>{title}</Caption>
 			</View>
 			<View>
 				<TouchableOpacity onPress={onNavigate} style={styles.iconButton}>

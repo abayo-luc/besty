@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList } from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, ProgressBar, useTheme } from 'react-native-paper';
+import { connect } from 'react-redux';
 import Container from '../../components/Container';
+import { fetchTests } from '../../store/actions/test.actions';
 import styles from './styles';
 import ListItem from './components/ListItem';
-const data = [{ id: 'it-1' }, { id: 'it-2' }, { id: 'it-3' }, { id: 'it-4' }];
-const TestScreen = ({ navigation }) => {
+
+const TestScreen = ({ navigation, fetchData, isFetching, tests }) => {
+	const { colors } = useTheme();
 	const [query, setQuery] = useState('');
 	const _handleNavigation = id => navigation.navigate('Quiz', { quizId: id });
+	useEffect(() => {
+		fetchData();
+	}, []);
 	return (
 		<Container containerStyles={styles.container}>
+			{isFetching && <ProgressBar indeterminate color={colors.accent} />}
 			<FlatList
-				data={data}
+				data={Object.values(tests)}
 				renderItem={({ item }) => (
 					<ListItem {...item} onNavigate={() => _handleNavigation(item.id)} />
 				)}
-				keyExtractor={item => item.id}
+				keyExtractor={item => `test-${item.id}`}
 				contentContainerStyle={styles.listContainer}
 				ListHeaderComponent={
 					<Searchbar
@@ -30,4 +37,7 @@ const TestScreen = ({ navigation }) => {
 	);
 };
 
-export default TestScreen;
+const mapStateToProps = ({ tests }) => ({
+	...tests
+});
+export default connect(mapStateToProps, { fetchData: fetchTests })(TestScreen);

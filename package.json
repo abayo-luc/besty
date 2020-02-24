@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"@expo/vector-icons": "^10.0.6",
+		"@react-native-community/async-storage": "^1.8.0",
 		"@react-native-community/masked-view": "^0.1.6",
 		"axios": "^0.19.2",
 		"expo": "~36.0.0",
@@ -28,6 +29,10 @@
 		"react-navigation": "^4.1.0",
 		"react-navigation-hooks": "^1.1.0",
 		"react-navigation-stack": "^2.0.16",
+		"react-redux": "^7.2.0",
+		"redux": "^4.0.5",
+		"redux-persist": "^6.0.0",
+		"redux-thunk": "^2.3.0",
 		"uuid": "^3.4.0"
 	},
 	"devDependencies": {

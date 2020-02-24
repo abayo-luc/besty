@@ -12,9 +12,9 @@ export default StyleSheet.create({
 		justifyContent: 'space-between',
 		borderWidth: StyleSheet.hairlineWidth * 6,
 		width: DEVICE_WIDTH * 0.7,
-		height: responsiveHeight(7),
+		paddingVertical: responsiveHeight(1.5),
 		paddingHorizontal: responsiveWidth(2),
-		borderRadius: responsiveHeight(4.5) / 2
+		borderRadius: responsiveHeight(3 / 2)
 	},
 	markedContainer: {
 		height: responsiveWidth(5),
