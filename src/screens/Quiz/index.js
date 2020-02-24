@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
-import { Paragraph, Title } from 'react-native-paper';
+import { Title } from 'react-native-paper';
 import styles from './styles';
 import AnswerComponent from './components/Answer';
 const data = [
@@ -59,7 +59,5 @@ const QuizScreen = () => {
 		</ScrollView>
 	);
 };
-QuizScreen.navigationOptions = () => ({
-	headerBackTitleVisible: false
-});
+
 export default QuizScreen;
