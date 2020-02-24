@@ -5,6 +5,7 @@ import Container from '../../components/Container';
 import data from '../../data/chat';
 import ChatComponent from '../../components/chat';
 import Background from '../../../assets/chat.jpg';
+import DialogFlow from '../../utils/dialogflow';
 
 const HeaderNavigation = ({ navigate }) => {
 	return (
@@ -29,15 +30,32 @@ const Home = ({ navigation }) => {
 	} = navigation.dangerouslyGetParent().state.params;
 	const [messages, setMessages] = useState(data[language]);
 	const [text, setText] = useState('');
-	const _sendMessage = () => {
+	const _handleNewMessage = newMessage =>
+		setMessages(prevState => [newMessage, ...prevState]);
+
+	const _handleResponse = async text => {
+		try {
+			const resp = await DialogFlow.sendText(text);
+			const botMessage = {
+				id: resp.responseId,
+				message: resp.queryResult.fulfillmentText,
+				_nodeId: 0
+			};
+			_handleNewMessage(botMessage);
+		} catch (error) {
+			alert(error.message);
+		}
+	};
+
+	const _sendMessage = async () => {
 		if (!text) return;
 		const newMessage = {
 			id: `txt-${new Date()}`,
 			message: text.trim(),
-			_nodeId: 1,
-			trigger: messages.length + 2
+			_nodeId: 1
 		};
-		setMessages([newMessage, ...messages]);
+		setMessages(prevState => [newMessage, ...prevState]);
+		_handleResponse(text.trim());
 		setText('');
 	};
 	return (
