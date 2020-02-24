@@ -17,7 +17,7 @@ const HeaderNavigation = ({ navigate }) => {
 			<View style={styles.verticalSeparator} />
 			<TouchableOpacity
 				style={styles.navigationButton}
-				onPress={() => navigate('Quiz')}>
+				onPress={() => navigate('Tests')}>
 				<Text style={styles.buttonTitle}>Self-help</Text>
 			</TouchableOpacity>
 		</View>
